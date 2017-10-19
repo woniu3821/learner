@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 50px;
+            background: #333;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let oBtn = document.getElementsByName('btn')[0];
+            let handler = event => {
+                switch (event.type) {
+                    case "click":
+                        alert("Clicked");
+                        break;
+                    case "mouseover":
+                        event.target.style.backgroundColor = "red";
+                        break;
+                    case "mouseout":
+                        event.target.style.backgroundColor = "blue";
+                        break;
+                }
+            }
+            oBtn.onclick = handler;
+            oBtn.onmouseover = handler;
+            oBtn.onmouseout = handler;
+        }
+    </script>
+</head>
+
+<body>
+    <div name="btn"></div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                    alert(xhr.responseText)
+                } else {
+                    alert("XMLHttpRequest error! " + " status:" + xhr.status)
+                }
+            }
+        }
+        xhr.open("get", "./event.html", "true");
+        xhr.setRequestHeader("MyHeader", "cuitao");
+        xhr.send(null);
+        let data = new FormData(document.forms[0]);
+        xhr.open("post", "./1.php", true);
+        xhr.timeout = 1000;
+        xhr.ontimeout = function() {
+            alert(123);
+        }
+        xhr.overrideMimetype("text/xml"); //将响应对象当做xml文本处理
+        xhr.send(data); //发送post数据
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

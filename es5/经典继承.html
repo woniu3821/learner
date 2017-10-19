@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function SuperType(name) {
+            this.name = name;
+        }
+
+        function SubType() {
+            SuperType.call(this, 'niuke');
+            this.age = 29;
+        }
+        var instance = new SubType();
+        alert(instance.name);
+        alert(instance.age);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

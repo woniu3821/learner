@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form action="">
+        <input type="text" maxlength="3">
+        <input type="text" maxlength="3">
+        <input type="text" maxlength="4">
+    </form>
+    <script>
+        window.onload = function() {
+            var text1 = document.getElementsByTagName('input').item(0);
+            let text2 = document.getElementsByTagName('input').item(1);
+            let text3 = document.getElementsByTagName('input').item(2);
+            text1.onkeyup = tabs(event);
+
+            function tabs(event) {
+                if (event) {
+                    var event = event || window.event;
+                    target1 = event.target || event.srcElement;
+                    if (target1.value.length == target1.maxLength) {
+                        let form = target1.form;
+                        for (let i = 0, len = form.elements.length; i < len; i++) {
+                            if (form.elements[i] == target1) {
+                                if (form.elements[i + 1]) {
+                                    form.elements[i + 1].focus();
+                                }
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

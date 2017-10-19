@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.documentElement.beforeunload = function(event) {
+            var message = "真的要离开吗";
+            alert(1);
+            event.returnValue = message;
+            return message;
+        }
+    </script>
+</head>
+
+<body>
+    1112121212
+    <a href="123.html">12321312</a>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //策略类
+        var levelOBJ = {
+                "A": function(money) {
+                    return money * 4
+                },
+                "B": function(money) {
+                    return money * 3
+                },
+                "C": function(money) {
+                    return money * 2
+                }
+            }
+            //环境类
+        var caculateBouns = function(level, money) {
+            return levelOBJ[level](money);
+        }
+        console.log(caculateBouns("A", 1000))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

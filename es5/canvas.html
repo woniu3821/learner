@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var plant = document.getElementById('plant');
+            if (plant.getContext) {
+
+                var context = plant.getContext("2d");
+                context.strokeStyle = "blue";
+                context.strokeRect(10, 10, 50, 50)
+                context.fillStyle = "rgba(0,0,255,0.5)";
+                context.fillRect(30, 30, 50, 50);
+                context.clearRect(40, 40, 20, 20)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="plant" height="200" width="200">暂不支持画布</canvas>
+</body>
+
+</html>

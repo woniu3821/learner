@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+ li,
+dl,
+dt,
+dd,
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page {
+    width: 100%;
+}
+
+.left {
+    width: 12%;
+    float: left;
+}
+
+.left li {
+    line-height: 28px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.right {
+    float: left;
+    width: 85%;
+    margin-left: 2%;
+    border-right: 1px solid #A19E9E;
+}
+ </style>
+</head>
+
+<body>
+    <div class="page">
+        <% include components/left.pub.ejs%>
+            <div class="right">
+                <div class="right_top">
+                    <form action="?" method="post" enctype="multipart/form-data">
+                        <label for="title">标题</label>
+                        <input type="text" id="title" name="title"><br/>
+                        <label for="descript">评价</label>
+                        <textarea rows="3" id="descript" name="eval" cols="21"></textarea><br/>
+                        <label for="url">头像上传</label>
+                        <input type="file" id="url" name="f1"><br/>
+                        <input type="submit" value="提交">
+                    </form>
+                </div>
+                <div class="right_content">
+                <table border="1" width="100%">
+                    <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>描述</th>
+                    <th>地址</th>
+                    <th>操作</th>
+                    </tr>
+                    
+                    </thead>
+                    <tbody>
+                    <% for(var i=0;i<evals.length;i++){%>
+                        <tr>
+                        <td><%=evals[i].ID%></td>
+                        <td><%=evals[i].title%></td>
+                        <td><%=evals[i].eval%></td>
+                        <td><img width="30" height="30" src="/upload/<%=evals[i].href%>"/></td>
+                        <td>
+                        <a href="?act=del&id=<%=evals[i].ID%>" onclick="return confirm('你真的要删除吗？')">删除</a>
+                        <a href="?act=mod&id=<%=evals[i].ID%>">修改</a>
+                        </td>
+                        </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+                </div>
+                <div class="right_bottom">
+                <% if(typeof mod_data!='undefined'){%>
+                        <form action="?" method="post" enctype="multipart/form-data">
+                        <label for="title">标题</label>
+                        <input type="text" id="title" value="<%=mod_data.title%>" name="title"><br/>
+                        <label for="descript">评价</label>
+                        <textarea rows="3" id="descript" name="eval" cols="21"><%=mod_data.eval%></textarea><br/>
+                        <label for="url">头像</label>
+                        <input type="file" id="url" value="<%=mod_data.href%>" name="f1"><br/>
+                        <input type="submit" value="提交"><a href="/admin/eval">取消修改</a>
+                        <input type="hidden" name="mod_id" value="<%=mod_data.ID%>"/>
+                    </form>
+                    <%}%>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>

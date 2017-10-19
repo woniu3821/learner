@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Super(name) {
+            this.name = name;
+            this.colors = ['blue', 'yellow', 'orange'];
+        }
+        Super.prototype.SayName = function() {
+            alert(this.name);
+        }
+
+        function Sub(name, age) {
+            Super.call(this, name);
+            this.age = age;
+        }
+        var instance2 = new Super();
+        Sub.prototype = new Super();
+        Sub.prototype.constructor = Sub;
+        Sub.prototype.SayAge = function() {
+            alert(this.age);
+        }
+        var instance1 = new Sub('niuke', 20)
+        instance1.SayName();
+        instance1.SayAge();
+        instance1.colors.push('ddd')
+        alert(instance1.colors);
+        console.log(instance2.colors);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var book = {
+            title: "Profational Javascript",
+            authors: [
+                "Nicholas C .Zakas",
+                "Jin bu Jing XI"
+            ],
+            /* toJSON: function() {
+                return this.title
+            }, */
+            edition: 3,
+            year: 2011
+        }
+        var JsonText = JSON.stringify(book)
+        let bookCopy = JSON.parse(JsonText)
+        let JsonText1 = JSON.stringify(book, ["title", "authors"]);
+        let JsonText2 = JSON.stringify(book, (key, value) => {
+            switch (key) {
+                case "authors":
+                    return value.join(",");
+                case "year":
+                    return undefined;
+                default:
+                    return value;
+            }
+        })
+        let JsonText3 = JSON.stringify(book, null, 4)
+        console.log(JsonText3)
+        console.log(JsonText1)
+        console.log(JsonText2)
+        console.log(JsonText)
+        console.log(bookCopy)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        var code = "function sayHai(){alert('Hi')}";
+        try {
+            script.appendChild(document.createTextNode(code));
+        } catch (er) {
+            script.text = code;
+        }
+        document.body.appendChild(script);
+        sayHai();
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "css/style.css";
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+
+        function loadStyleSheet(css) {
+            var style = document.createElement('style');
+            style.type = "text/css";
+            try {
+                style.appendChild(document.createTextNode(css))
+            } catch (err) {
+                style.styleSheet.cssText = css;
+            }
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(style);
+        }
+        loadStyleSheet("body{background-color:#333}")
+    </script>
+</body>
+
+</html>

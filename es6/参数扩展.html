@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //参数扩展
+        // let show = (a, b, c, ...args) => {
+        //     alert(a);
+        //     alert(b);
+        //     alert(c);
+        //     console.log(args);
+        // }
+
+        // show(1, 2, 3, 4, 5, 6, 7);
+        //展开数组
+        // let arr1 = [1, 2, 3];
+        // let show = (...arr1) => {
+        //     alert(arr1)
+        // }
+        // show(arr1);
+        // let arr2 = [4, 5, 6, ];
+        // console.log([...arr1, ...arr2]);
+
+        function show(...arg1) {
+            fn(...arg1);
+        }
+
+        function fn(a, b) {
+            alert(a + b);
+        }
+        show(10, 2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
